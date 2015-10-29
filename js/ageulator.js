@@ -1,6 +1,4 @@
-
-   'use strict';
-   // this function is strict...
+'use strict';
 
    var calculateDate = function () {
 
@@ -89,18 +87,16 @@
        if(inPast) {
          for (var i = m; i <= 11; i++) {
              dayCount += daysInMonth[i];
-
          }
          dayCount -= d;
          inputYearDays = dayCount;
-
        }
        else {
          for (var i = 0; i <= m -1; i++) {
            dayCount += daysInMonth[i];
        }
 
-         //console.log("The number of days in the current year is "+ dayCount);
+       //console.log("The number of days in the current year is "+ dayCount);
        dayCount += parseInt(d);
 
        currentYearDays = dayCount;
@@ -119,21 +115,23 @@
          extraMonths = parseInt(fTodayMonth) + monthInInputYear,
          monthCalc = (yearCalc - 1) * 12,
          allMonths = monthCalc + extraMonths,
-         weekCalc = parseInt(dayCalc / 7);
+         weekCalc = parseInt(dayCalc / 7),
+         remainingMonths = fTodayMonth - fInputMonth,
+         remainingDays = fTodayDay - fInputDay;
          //hourCalc = dayCalc * 24,
          //minCalc = hourCalc * 60,
          //secondCalc = minCalc * 60;
 
-     console.log("You are " + yearCalc + " years old");
-     console.log("You have been here for " + dayCalc + " days! in that time there have been " + totalLeaps + " leap years");
+     console.log("You are " + yearCalc + " years, " + remainingMonths + " months and " + remainingDays + " days old");
      console.log("Months " + allMonths);
      console.log("Weeks " + weekCalc);
+     console.log("You have been here for " + dayCalc + " days! in that time there have been " + totalLeaps + " leap years");
      //console.log("Hours " + hourCalc); // not accurate
      //console.log("Minutes " + minCalc); // not accurate
      //console.log("Seconds " + secondCalc); // not accurate
 
-     document.getElementById('theResult').innerHTML = "<h1>You are " + yearCalc + " years old!</h1>";
-     document.getElementById('theResult').innerHTML += "<h2>You are " + dayCalc + " days old!</h2>";
+     document.getElementById('theResult').innerHTML = "<h1>You are " + yearCalc + " years, " + remainingMonths + " months and " + remainingDays + " days old</h1>";
      document.getElementById('theResult').innerHTML += "<h2>You are " + allMonths + " months old!</h2>";
      document.getElementById('theResult').innerHTML += "<h2>You are " + weekCalc + " weeks old!</h2>";
+     document.getElementById('theResult').innerHTML += "<h2>You are " + dayCalc + " days old!</h2>";
   }
