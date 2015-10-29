@@ -10,5 +10,6 @@ TO DO -
 
 - Style the page 
 - Clean up code with DRY principles
+- Improve year calculation to give year + months and day age (eg 18years 3months and 2 days)
 - Add seconds, hours, minutes and dynamically update based on current time
 - Remove jQuery UI date picker and replace with 3 seperate fields for DD MM YY for usability reasons
