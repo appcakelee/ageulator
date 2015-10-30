@@ -28,8 +28,12 @@
   <meta name="author" content="">
 
   <title>iamleeadamson - Ageulator</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Load compiled less css file -->
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
   <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
   <link href="js/jquery-ui/jquery-ui.structure.min.css" rel="stylesheet">
@@ -47,40 +51,59 @@
 
 <body id="page-top" class="ageulator" >
 
-  <!-- Navigation -->
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3 text-center">
 
+      <h1>The Ageulator</h1>
 
-  <p>Date: <input type="text" id="datepicker"></p>
+      <h2>Enter a date in the past to find out how long ago it was</h2>
 
-  <button>Get an Age</button>
+      <p>Date: <input type="text" id="datepicker" class="dates"></p>
 
-  <div id="theResult">
+      <button class="btn btn-primary ">Get an Age</button>
+
+      <div id="theResult">
+      </div>
+
+    </div>
   </div>
 
-  <!-- Footer -->
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
     <script src="js/ageulator.js"></script>
 
   <script>
 
     $(function() {
 
-      $( "#datepicker" ).datepicker({
+      $('#datepicker').datepicker({
         changeMonth: true,
         changeYear: true
       });
 
       //Write calcualte age data here
 
-      $("button").click(function(e) {
-        e.preventDefault();
-        if ($('#datepicker').val() != '') {
-          calculateDate();
-        }
-      });
+      console.log($('.dates'));
+
+        var $button = $('button');
+
+
+        $button.click(function(e) {
+          e.preventDefault();
+          if ($('#datepicker').val() != '') {
+              calculateDate();
+          };
+        });
+
+
     });
 
 
