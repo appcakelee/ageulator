@@ -1,3 +1,14 @@
+body {
+  background-color: #CCFFE6; }
 
+input {
+  padding: 10px 16px; }
+
+input, select {
+  width: 33% !important;
+  display: inline-block !important;
+  background-color: #99ffcd !important;
+  border: 0 none !important;
+  box-shadow: none !important; }
 
 /*# sourceMappingURL=style.css.map */

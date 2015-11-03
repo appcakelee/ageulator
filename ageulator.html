@@ -58,7 +58,28 @@
 
       <h2>Enter a date in the past to find out how long ago it was</h2>
 
-      <p>Date: <input type="text" id="datepicker" class="dates"></p>
+      <p>Date: </p>
+
+      <select class="form-control input-lg" name="month" id="month">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+
+      <select class="form-control input-lg" name="day" id="day">
+
+      </select>
+
+      <input type="text" name="year" id="year"></input>
 
       <button class="btn btn-primary ">Get an Age</button>
 
@@ -80,29 +101,26 @@
 
     <script src="js/ageulator.js"></script>
 
+
   <script>
 
+
     $(function() {
-
-      $('#datepicker').datepicker({
-        changeMonth: true,
-        changeYear: true
-      });
-
       //Write calcualte age data here
-
-      console.log($('.dates'));
 
         var $button = $('button');
 
-
         $button.click(function(e) {
           e.preventDefault();
-          if ($('#datepicker').val() != '') {
-              calculateDate();
+          if ($('#day') != '' && $('#month') != '' && $('#year') != '') {
+
+            var userInputDay = document.getElementById("day").selectedIndex + 1,
+                userInputMonth = document.getElementById("month").selectedIndex + 1,
+                userInputYear = document.getElementById("year").value;
+
+            calculateDate(userInputDay, userInputMonth, userInputYear);
           };
         });
-
 
     });
 
