@@ -1,0 +1,70 @@
+body {
+  background-color: $base-color;
+  color: lighten($base-color, 90%);
+}
+.ageulator {
+  *:focus {
+    background-color: darken($base-color, 40%);
+    color: $base-color;
+  }
+  h1, h2, h3 {
+    font-family: $heading-font;
+  }
+  h1 {
+    .glyphicon {
+      display: block;
+      @include remCalc(font-size, 150);
+      @include remCalc(margin, 30 0);
+    }
+  }
+  h2 {
+    @include remCalc(font-size, 16);
+  }
+  .row {
+    @include remCalc(margin, 30 0);
+    div {
+      div {
+        @include remCalc(margin, 5);
+        @media (min-width: $screen-sm-min) {
+          margin: auto;
+        }
+      }
+    }
+  }
+  input {
+    //padding: 23px 16px;
+    @include remCalc(padding, 23 16);
+    position: relative;
+    top: 1px;
+  }
+  input, select {
+    display: inline-block;
+    background-color: darken($base-color, 10%);
+    border: 0 none;
+    box-shadow: none;
+    color: darken($base-color, 40%);
+    @include remCalc(font-size, 20, !important)
+  }
+  .btn-primary {
+    color: darken($base-color, 40%);
+    background-color: darken($base-color, 10%);
+    border: 0 none;
+    @include font-size(18);
+    padding: 10px 18px;
+    text-transform: uppercase;;
+    &:active, &:hover {
+      background-color: darken($base-color, 40%);
+      color: $base-color;
+    }
+  }
+  .result {
+    h1 {
+      @include remCalc(font-size, 16);
+      @include remCalc(line-height, 24);
+    }
+    span {
+      font-family: $heading-font;
+      @include remCalc(font-size, 20);
+    }
+  }
+}

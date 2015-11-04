@@ -1,15 +1,5 @@
 @import '_variables';
-
-body {
-  background-color: #CCFFE6;
-}
-input {
-  padding: 10px 16px;
-}
-input, select {
-  width: 33%!important;
-  display: inline-block!important;
-  background-color: darken( $base-color, 10% )!important;
-  border: 0 none!important;
-  box-shadow: none!important;
-}
+@import '_mixins';
+@import '_typography';
+@import '_base';
+@import '_design';

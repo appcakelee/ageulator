@@ -1,0 +1,10 @@
+// Global and base resets
+
+html {
+  font-size: 62.5%; /* Sets up the Base 10 stuff */
+}
+*:focus {
+  outline: none!important;
+  box-shadow: none!important;
+  border-color: none!important;
+}
