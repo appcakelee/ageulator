@@ -11,17 +11,29 @@ body {
     font-family: $heading-font;
   }
   h1 {
+    @include remCalc(margin-top, 0);
+    @include remCalc(font-size, 20);
+    @media (min-width: $screen-sm-min) {
+      @include remCalc(font-size, 36);
+    }
     .glyphicon {
       display: block;
-      @include remCalc(font-size, 150);
-      @include remCalc(margin, 30 0);
+      @include remCalc(margin, 0 0 20 0);
+      @include remCalc(font-size, 100);
+      @media (min-width: $screen-sm-min) {
+        @include remCalc(margin, 30 0);
+        @include remCalc(font-size, 150);
+      }
     }
   }
   h2 {
     @include remCalc(font-size, 16);
   }
   .row {
-    @include remCalc(margin, 30 0);
+    @include remCalc(margin, 0 0 30 0);
+    @media (min-width: $screen-sm-min) {
+      @include remCalc(margin, 30 0);
+    }
     div {
       div {
         @include remCalc(margin, 5);
@@ -43,7 +55,11 @@ body {
     border: 0 none;
     box-shadow: none;
     color: darken($base-color, 40%);
-    @include remCalc(font-size, 20, !important)
+    @include remCalc(font-size, 20, !important);
+  }
+  select {
+    -webkit-appearance: initial;
+    @include remCalc(line-height, 24);
   }
   .btn-primary {
     color: darken($base-color, 40%);
