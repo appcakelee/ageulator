@@ -1,5 +1,31 @@
 "use strict";
 
+var callDate = document.getElementById("getDate");
+
+callDate.addEventListener("click", function() {
+
+  var userInputDay      = document.getElementById("day").selectedIndex ? document.getElementById("day").selectedIndex + 1 : 1,
+      userInputMonth    = document.getElementById("month").selectedIndex ? document.getElementById("month").selectedIndex + 1 : 1,
+      userInputYear     = document.getElementById("year").value ? document.getElementById("year").value : -1,
+      currentYear       = new Date().getFullYear();
+
+  if(userInputYear === -1 || isNaN(userInputYear)) {
+    document.getElementById("theResult").innerHTML = "<h1>Please enter a year</h1>";
+  }
+  else if(userInputYear > currentYear) {
+    document.getElementById("theResult").innerHTML = "<h1>Hold on future child! Enter a date in the past!</h1>";
+  }
+  else if (userInputYear <= 99 && userInputYear !== -1 && !isNaN(userInputYear)) {
+    document.getElementById("theResult").innerHTML = "<h1>Try another date, my records don't go back that far</h1>";
+  } else {
+      calculateDate(userInputDay, userInputMonth, userInputYear);
+  }
+}, false);
+
+
+for(var i = 1; i <= 31; i++){
+  document.getElementById("day").innerHTML  += '<option value="'+i+'">'+i+'</option>';
+}
 // automatically fill month drop down with correct day count
 document.getElementById("month").onchange = function() {
   document.getElementById("day").innerHTML = '';
@@ -21,7 +47,7 @@ document.getElementById("month").onchange = function() {
     document.getElementById("day").innerHTML  += '<option value="'+i+'">'+i+'</option>';
   }
 
-}
+};
 
 var calculateDate = function (userInputDay, userInputMonth, userInputYear) {
 
@@ -43,13 +69,13 @@ var calculateDate = function (userInputDay, userInputMonth, userInputYear) {
       monthsRyear   = months % 12,
       timeInfo      = '';
 
-  timeInfo += parseInt(days) + " days has gone by since birth! </br>";
-  timeInfo += parseInt(hours) + " hours has gone by since birth! </br>";
-  timeInfo += parseInt(mins) + " minutes has gone by since birth! </br>";
-  timeInfo += parseInt(seconds) + " seconds has gone by since birth! </br>";
-  timeInfo += parseInt(weeks) + " weeks and " + parseInt(daysRweeks) + " days has gone by since birth! </br>";
-  timeInfo += parseInt(months) + " months has gone by since birth! </br>";
-  timeInfo += parseInt(years) + " years and " + parseInt(monthsRyear) + " months has gone by since birth! </br>";
+  timeInfo += "You or whatever you're ageing is <span>" + parseInt(days) + "</span> days old, ";
+  timeInfo += "which is <span>" + parseInt(hours) + "</span> hours or <span>";
+  timeInfo += parseInt(mins) + "</span> minutes or <span>";
+  timeInfo += parseInt(seconds) + "</span> seconds! ";
+  timeInfo += "It works out as <span>" + parseInt(weeks) + "</span> weeks and <span>" + parseInt(daysRweeks) + "</span> days or <span>";
+  timeInfo += parseInt(months) + "</span> months, or putting it another way <span>";
+  timeInfo += parseInt(years) + "</span> years and <span>" + parseInt(monthsRyear) + "</span> months old! </br>";
 
   //Calculate difference btw the two dates, and convert to days
   document.getElementById("theResult").innerHTML = timeInfo;
